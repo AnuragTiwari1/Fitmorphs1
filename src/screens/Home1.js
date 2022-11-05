@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View,TouchableOpacity,TextInput,Image, ScrollView } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Header, Icon, Card,Button,Tile } from '@rneui/themed';
+import { Header, Icon, Card,Button } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 
@@ -9,7 +9,7 @@ import { Avatar } from '@rneui/base';
 import Slider1 from '../../assets/img/slider1.png';
 import CoachesCard from './CoachesCard';
 
-const Home = () => {
+const Home1 = () => {
   return (
     
     <SafeAreaProvider style={styles.container}>
@@ -54,7 +54,7 @@ const Home = () => {
                  
                    />
                     <TouchableOpacity style={{marginTop:10}}>
-    <FontAwesome name='search' size={20} style={{color:'#E5B556'}} />
+    <FontAwesome name='search' size={20} style={{color:'#02C38E'}} />
     </TouchableOpacity>
      
 </View>
@@ -86,7 +86,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         
         <Text style={styles.categoryText}>Muscle Build</Text>
@@ -99,7 +99,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -112,7 +112,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -125,7 +125,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -148,7 +148,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Muscle Build</Text>
         </TouchableOpacity>
@@ -160,7 +160,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -172,7 +172,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -184,7 +184,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -215,19 +215,7 @@ rating="4"
 />  
 
 
-{/* <Text style={styles.subHeader}>Featured Tile</Text>
-        <Tile
-          imageSrc={{
-            uri:
-              'https://www.mediastorehouse.com/p/191/sunset-porthmeor-beach-st-ives-cornwall-11702500.jpg.webp',
-          }}
-          title="When I admire the wonders of a sunset or the beauty of the moon, my soul expands in the worship of the creator."
-          titleStyle={{ fontSize: 15 }}
-          featured
-          caption="Mahatma Gandhi"
-          activeOpacity={1}
-          width={310}
-        /> */}
+
 
 
         </ScrollView>
@@ -283,7 +271,7 @@ const styles = StyleSheet.create({
     
     marginHorizontal:10,
     borderWidth: 1,
-    borderColor: '#E5B556',
+    borderColor: '#02C38E',
     height: 45,
     backgroundColor:'#fff',
     paddingHorizontal:15,
@@ -304,7 +292,7 @@ categoryText:{
 coachname:{
   marginVertical:20,
   fontSize:20,
-  color: '#E5B556',
+  color: '#02C38E',
 },
 coachcategory:{
   fontSize:14,
@@ -319,4 +307,4 @@ coachrating:{
 
   });
   
-  export default Home;
+  export default Home1;

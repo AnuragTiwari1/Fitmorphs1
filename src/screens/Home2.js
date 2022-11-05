@@ -1,15 +1,14 @@
 import { StyleSheet, Text, View,TouchableOpacity,TextInput,Image, ScrollView } from 'react-native'
 import React from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { Header, Icon, Card,Button,Tile } from '@rneui/themed';
+import { Header, Icon, Card,Button } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 
 import { Avatar } from '@rneui/base';
 import Slider1 from '../../assets/img/slider1.png';
-import CoachesCard from './CoachesCard';
 
-const Home = () => {
+const Home2 = () => {
   return (
     
     <SafeAreaProvider style={styles.container}>
@@ -54,7 +53,7 @@ const Home = () => {
                  
                    />
                     <TouchableOpacity style={{marginTop:10}}>
-    <FontAwesome name='search' size={20} style={{color:'#E5B556'}} />
+    <FontAwesome name='search' size={20} style={{color:'#02C38E'}} />
     </TouchableOpacity>
      
 </View>
@@ -86,7 +85,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         
         <Text style={styles.categoryText}>Muscle Build</Text>
@@ -99,7 +98,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -112,7 +111,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -125,7 +124,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -148,7 +147,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Muscle Build</Text>
         </TouchableOpacity>
@@ -160,7 +159,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -172,7 +171,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -184,7 +183,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#02C38E' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -198,36 +197,206 @@ const Home = () => {
 horizontal={true}
 showsHorizontalScrollIndicator={false}
 >
-   
+      <Card >
+      <View style={{display: "flex",width:200}}>
+          <Card.Image
+            style={{ padding: 0,width: '100%', }}
+            source={{
+              uri:
+                'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            }}
+          />
+           <Card.Title style={styles.coachname}>David S</Card.Title>
+           <Card.Title style={styles.coachcategory}> 
+           Yoga
 
-<CoachesCard 
-textData="Priya A" 
-imgSrc = {"https://plus.unsplash.com/premium_photo-1666283137119-372be475c27c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"}
-textData1="Yoga" 
-rating="5"
-/>
+          
+           
+           </Card.Title>
 
-<CoachesCard 
-textData="David S" 
-imgSrc = {"https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"}
-textData1="Gym"
-rating="4"
-/>  
+      
+           <Text style={{textAlign:'center',fontWeight:'bold'}}>Ratings: 4.0</Text>
 
 
-{/* <Text style={styles.subHeader}>Featured Tile</Text>
-        <Tile
-          imageSrc={{
-            uri:
-              'https://www.mediastorehouse.com/p/191/sunset-porthmeor-beach-st-ives-cornwall-11702500.jpg.webp',
-          }}
-          title="When I admire the wonders of a sunset or the beauty of the moon, my soul expands in the worship of the creator."
-          titleStyle={{ fontSize: 15 }}
-          featured
-          caption="Mahatma Gandhi"
-          activeOpacity={1}
-          width={310}
-        /> */}
+
+
+
+
+
+         
+          {/* <Card.Divider /> */}
+          <View 
+          style={{
+          flexDirection: 'row',
+          margin:20,
+          justifyContent:'space-evenly'
+                }}
+          >
+         
+          <Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+<Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+<Avatar 
+        
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+
+
+<Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+
+
+
+
+
+          </View>
+          {/* <Button
+            icon={
+              <Icon
+                name="code"
+                color="#ffffff"
+                iconStyle={{ marginRight: 10 }}
+              />
+            }
+            buttonStyle={{
+              borderRadius: 0,
+              marginLeft: 0,
+              marginRight: 0,
+              marginBottom: 0,
+            }}
+            title="VIEW NOW"
+          /> */}
+
+
+          </View>
+        </Card>
+
+
+        <Card >
+      <View style={{display: "flex",width:200}}>
+          <Card.Image
+            style={{ padding: 0,width: '100%', }}
+            source={{
+              uri:
+                'https://awildgeographer.files.wordpress.com/2015/02/john_muir_glacier.jpg',
+            }}
+          />
+           <Card.Title style={styles.coachname}>David S</Card.Title>
+           <Card.Title style={styles.coachcategory}> 
+           Yoga
+
+          
+           
+           </Card.Title>
+
+      
+           <Text style={{textAlign:'center',fontWeight:'bold'}}>Ratings: 4.0</Text>
+
+
+
+
+
+
+
+         
+          {/* <Card.Divider /> */}
+          <View 
+          style={{
+          flexDirection: 'row',
+          margin:20,
+          justifyContent:'space-evenly'
+                }}
+          >
+         
+          <Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+<Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+<Avatar 
+        
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+
+
+<Avatar 
+           
+           size={14}
+           rounded
+           icon={{ name: 'star', type: 'font-awesome' }}
+           containerStyle={{ backgroundColor: '#E7AB2B' }}
+         />
+
+
+
+
+
+
+          </View>
+          {/* <Button
+            icon={
+              <Icon
+                name="code"
+                color="#ffffff"
+                iconStyle={{ marginRight: 10 }}
+              />
+            }
+            buttonStyle={{
+              borderRadius: 0,
+              marginLeft: 0,
+              marginRight: 0,
+              marginBottom: 0,
+            }}
+            title="VIEW NOW"
+          /> */}
+
+
+          </View>
+        </Card>
+
+
+
+
 
 
         </ScrollView>
@@ -283,7 +452,7 @@ const styles = StyleSheet.create({
     
     marginHorizontal:10,
     borderWidth: 1,
-    borderColor: '#E5B556',
+    borderColor: '#02C38E',
     height: 45,
     backgroundColor:'#fff',
     paddingHorizontal:15,
@@ -304,7 +473,7 @@ categoryText:{
 coachname:{
   marginVertical:20,
   fontSize:20,
-  color: '#E5B556',
+  color: '#02C38E',
 },
 coachcategory:{
   fontSize:14,
@@ -319,4 +488,4 @@ coachrating:{
 
   });
   
-  export default Home;
+  export default Home2;

@@ -2,15 +2,38 @@ import { Header } from '@rneui/base';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+
 import Home  from './src/screens/Home';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-            <StatusBar style="auto" />
-      <Home />
+import BottomNavigator from './src/BottomNavigator/BottomNavigator';
 
-    </View>
+export default function App() {
+
+  const Stack = createNativeStackNavigator();
+
+  return (
+   
+   
+    <NavigationContainer>
+       <StatusBar  backgroundColor = "red" />
+      <Stack.Navigator >
+      <Stack.Screen name="BottomNavigator" component={BottomNavigator} options={{headerShown: false}}/>
+        {/* <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
+
+        <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
+        
+        <Stack.Screen name="Home" component={BottomNavigator} /> */}
+        
+      </Stack.Navigator>
+    </NavigationContainer>
+
+
+    
+
+
   );
 }
 
