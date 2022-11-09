@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 //import screens
-import Home from '../screens/Home';
+import Home1 from '../screens/Home1';
 import Profile from '../screens/Profile';
 import Settings from '../screens/Settings';
 import Responsive from '../screens/Responsive';
@@ -16,7 +16,7 @@ const BottomNavigator = () => {
     <Tab.Navigator    
 
     >
-    <Tab.Screen name="Home" component={Home}  
+    <Tab.Screen name="Home1" component={Home1}  
       options={{headerShown: false,
       tabBarIcon: () => <BottomIconsContainer name="home" />                                             
     }

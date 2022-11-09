@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Header, Icon, Card,Button } from '@rneui/themed';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
-
+import { ScaledSheet,scale, verticalScale, moderateScale, s, vs, ms, mvs, msr  } from 'react-native-size-matters';
 import { Avatar } from '@rneui/base';
 import Slider1 from '../../assets/img/slider1.png';
 import CoachesCard from './CoachesCard';
@@ -37,14 +37,14 @@ const Home1 = () => {
               <Icon name="description" color="#585858" />
             </TouchableOpacity>
             <TouchableOpacity
-              style={{ marginLeft: 10 }}
+              style={{ marginLeft: moderateScale(10) }}
               
             >
               <Icon type="antdesign" name="rocket1" color="#585858" />
             </TouchableOpacity>
           </View>
       }
-      centerComponent={{ text: 'Home', style: styles.heading }}
+      centerComponent={{ text: 'Home1', style: styles.heading }}
     />
        <View style={styles.customInputContainer} >
        
@@ -53,15 +53,15 @@ const Home1 = () => {
                    placeholderTextColor={'grey'}
                  
                    />
-                    <TouchableOpacity style={{marginTop:10}}>
+                    <TouchableOpacity style={{marginTop: moderateScale(10)}}>
     <FontAwesome name='search' size={20} style={{color:'#02C38E'}} />
     </TouchableOpacity>
      
 </View>
 
-<View style={{marginVertical:-40}}>
+<View style={{marginVertical:moderateScale(-40)}}>
           <Image
-              style={{width:"95%",height:300,marginHorizontal:10}}
+              style={{width:"95%",height:verticalScale(300),marginHorizontal:moderateScale(10)}}
               resizeMode="contain"
               source={Slider1} 
             />
@@ -70,13 +70,13 @@ const Home1 = () => {
 
 
 
-         <Text style={[styles.heading,{marginVertical:10,textAlign:'left',marginHorizontal:20}]}>Health Services</Text>
+         <Text style={[styles.heading,{marginVertical:moderateScale(10),textAlign:'left',marginHorizontal:moderateScale(20)}]}>Health Services</Text>
       <View
         style={{
           flexDirection: 'row',
           
-          marginBottom: 30,
-          paddingHorizontal:20
+          marginBottom: moderateScale(30),
+          paddingHorizontal:moderateScale(15)
           
         }}
       >
@@ -137,8 +137,8 @@ const Home1 = () => {
         style={{
           flexDirection: 'row',
           
-          marginBottom: 20,
-          paddingHorizontal:20
+          marginBottom: moderateScale(20),
+          paddingHorizontal:moderateScale(15)
         
         }}
       >
@@ -236,7 +236,7 @@ rating="4"
   )
 }
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
   container:{
     flex:1,
     backgroundColor:'#f6fbf6',
@@ -247,9 +247,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'white',
-    marginBottom: 20,
+    marginBottom: '20@msr',
     width: '100%',
-    paddingVertical: 15,
+    paddingVertical: '15@msr',
   },
   heading: {
     // color: '#585858',
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
   headerRight: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: 5,
+    marginTop: '5@msr',
   },
   subheaderText: {
     color: 'white',
@@ -269,41 +269,38 @@ const styles = StyleSheet.create({
   },
   customInputContainer: {
     
-    marginHorizontal:10,
-    borderWidth: 1,
+    marginHorizontal:'10@msr',
+    borderWidth: '1@s',
     borderColor: '#02C38E',
-    height: 45,
+    height: '45@vs',
     backgroundColor:'#fff',
-    paddingHorizontal:15,
-    paddingVertical:0,
-    borderRadius:10,
-    marginBottom:1,
-    marginTop: 10,
+    paddingHorizontal:'15@msr',
+    paddingVertical:'0@msr',
+    borderRadius:'10@s',
+    marginBottom:'1@msr',
+    marginTop: '10@msr',
     flexDirection: 'row',
     justifyContent:'space-between'
 },
 categoryText:{
-  marginLeft:3,
-  marginTop:10,
+  marginLeft:'3@msr',
+  marginTop:'10@msr',
   fontSize:12,
   textAlign:'center',
   fontWeight:'500'
 },
 coachname:{
-  marginVertical:20,
+  marginVertical:'20@msr',
   fontSize:20,
   color: '#02C38E',
 },
 coachcategory:{
   fontSize:14,
  
-  
 },
 coachrating:{
   fontSize:14,
-  
-  
-}
+  }
 
   });
   

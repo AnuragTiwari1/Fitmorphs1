@@ -54,7 +54,7 @@ const Home = () => {
                  
                    />
                     <TouchableOpacity style={{marginTop:10}}>
-    <FontAwesome name='search' size={20} style={{color:'#E5B556'}} />
+    <FontAwesome name='search' size={20} style={{color:'#F6BB0A'}} />
     </TouchableOpacity>
      
 </View>
@@ -86,7 +86,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         
         <Text style={styles.categoryText}>Muscle Build</Text>
@@ -99,7 +99,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -112,7 +112,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -125,7 +125,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -148,7 +148,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'pencil', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>Muscle Build</Text>
         </TouchableOpacity>
@@ -160,7 +160,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'rowing' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>Fat Loss</Text>
         </TouchableOpacity>
@@ -172,7 +172,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>Cross Fit</Text>
         </TouchableOpacity>
@@ -184,7 +184,7 @@ const Home = () => {
           size={58}
           rounded
           icon={{ name: 'heartbeat', type: 'font-awesome' }}
-          containerStyle={{ backgroundColor: '#E5B556' }}
+          containerStyle={{ backgroundColor: '#F6BB0A' }}
         />
         <Text style={styles.categoryText}>S&C</Text>
         </TouchableOpacity>
@@ -283,7 +283,7 @@ const styles = StyleSheet.create({
     
     marginHorizontal:10,
     borderWidth: 1,
-    borderColor: '#E5B556',
+    borderColor: '#F6BB0A',
     height: 45,
     backgroundColor:'#fff',
     paddingHorizontal:15,
@@ -304,7 +304,7 @@ categoryText:{
 coachname:{
   marginVertical:20,
   fontSize:20,
-  color: '#E5B556',
+  color: '#F6BB0A',
 },
 coachcategory:{
   fontSize:14,
