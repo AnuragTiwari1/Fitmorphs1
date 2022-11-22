@@ -10,7 +10,7 @@ import {
 import React from "react";
 
 import { Header, Icon, Card, Tile, Input } from "@rneui/themed";
-import { Button } from "@rneui/themed";
+import { Button, Badge } from "@rneui/themed";
 import CoachImage from "../../assets/img/coach1.jpg";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
@@ -54,6 +54,7 @@ const Profile = () => {
                   marginTop: -100,
                   textAlign: "center",
                   color: "white",
+                  marginBottom: 20,
                 },
               ]}
             >
@@ -61,6 +62,29 @@ const Profile = () => {
             </Text>
 
             <Card containerStyle={{ borderRadius: 30 }}>
+              <View
+                style={{
+                  flex: 1,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: -40,
+                }}
+              >
+                <Avatar
+                  size={100}
+                  rounded
+                  source={{
+                    uri: "https://s3.eu-west-3.amazonaws.com/fittr.storage/5F56119D-21DB-42D4-970C-93A2C55A9E0C_2018-09-18_07:22:36.jpeg",
+                  }}
+                  title="Bj"
+                  containerStyle={{ backgroundColor: "grey" }}
+                />
+                <Badge
+                  value=" PT COACH "
+                  status="success"
+                  textStyle={{ fontWeight: "bold" }}
+                />
+              </View>
               <View
                 style={{
                   flexDirection: "row",
