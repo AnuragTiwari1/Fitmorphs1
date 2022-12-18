@@ -17,8 +17,7 @@ import { Button } from "@rneui/themed";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
-
-const Profile = ({ route, navigation }) => {
+const Profile = () => {
   const [isLoaded, setIsLoaded] = useState(true);
   const [myData, setMyData] = useState([]);
   const [isLoading, setLoading] = useState(true);
@@ -40,7 +39,7 @@ const Profile = ({ route, navigation }) => {
     axios
       .get("https://engistack.com/test_reactapp/userdata_fitmorphs.php", {
         params: {
-          iUserId: 6,
+          iUserId: user.email,
         },
       })
       .then((json) => setMyData(json.data))
@@ -110,7 +109,7 @@ const Profile = ({ route, navigation }) => {
               data={myData}
               renderItem={({ item }) => (
                 <>
-                  <Text>Email Id : {user.email}</Text>
+                  <Text>UserId : {user.iUserId}</Text>
                   <Text>UserId : {item.iUserId}</Text>
                   <Text>Name : {item.sName}</Text>
                   <Text>Email : {item.sEmailId}</Text>
