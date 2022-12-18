@@ -7,13 +7,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 //import screens
-import Home from "../screens/Home";
-import Profile from "../screens/Profile";
-import GetCoach from "../screens/GetCoach";
+import Home from "../../screens/Home";
+import Profile from "../../screens/Profile";
+import GetCoach from "../../screens/GetCoach";
 import Responsive from "../screens/Responsive";
-import Plan from "../screens/Plan";
-import Diet from "../screens/Diet";
-import BuyPlan from "../screens/BuyPlan";
+import Plan from "../../screens/Plan";
+import Diet from "../../screens/Diet";
+import BuyPlan from "../../screens/BuyPlan";
 const BottomNavigator = () => {
   return (
     <Tab.Navigator>

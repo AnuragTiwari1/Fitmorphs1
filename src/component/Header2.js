@@ -21,8 +21,23 @@ import {
   msr,
 } from "react-native-size-matters";
 import { Avatar } from "@rneui/base";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation, StackActions } from "@react-navigation/native";
+import SimpleLineIcons from "react-native-vector-icons/SimpleLineIcons";
 
 const Header2 = () => {
+  const navigation = useNavigation();
+  const handleLogout = async () => {
+    try {
+      console.log("logout");
+      await AsyncStorage.clear();
+
+      navigation.dispatch(StackActions.replace("Login"));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <View>
       <Header
@@ -47,7 +62,17 @@ const Header2 = () => {
         rightComponent={
           <View style={styles.headerRight}>
             <TouchableOpacity style={{ marginLeft: moderateScale(-30) }}>
-              <Icon type="font-awesome-5" name="bell" />
+              <SimpleLineIcons name={"bell"} size={24} />
+              {/* <Icon type="ant-design" name="bells" /> */}
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{ marginLeft: moderateScale(30) }}
+              onPress={() => handleLogout()}
+            >
+              <Text style={{ color: "#fff" }}>
+                <Icon type="ant-design" name="logout" />
+              </Text>
             </TouchableOpacity>
           </View>
         }
