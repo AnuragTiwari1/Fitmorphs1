@@ -6,8 +6,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import Splash from "./src/screens/Splash";
 import Login from "./src/screens/Login";
+import Signup from "./src/screens/Signup";
 import Profile from "./src/screens/Profile";
+import BFP from "./src/screens/BFP";
+import BMR from "./src/screens/BMR";
+import BuyPlan from "./src/screens/BuyPlan";
+import CalorieCalculator from "./src/screens/CalorieCalculator";
+import Diet from "./src/screens/Diet";
 import BottomNavigator from "./src/BottomNavigator/BottomNavigator";
 
 export default function App() {
@@ -32,7 +39,12 @@ export default function App() {
   return screenName ? (
     <NavigationContainer>
       <StatusBar backgroundColor="red" />
-      <Stack.Navigator initialRouteName={screenName}>
+      <Stack.Navigator initialRouteName={Splash}>
+        <Stack.Screen
+          name="Splash"
+          component={Splash}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="Login"
           component={Login}
@@ -44,6 +56,19 @@ export default function App() {
           component={BottomNavigator}
           options={{ headerShown: false }}
         />
+
+        <Stack.Screen
+          name="BuyPlan"
+          component={BuyPlan}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Signup"
+          component={Signup}
+          options={{ headerShown: false }}
+        />
+
         {/* <Stack.Screen name="Login" component={Login} options={{headerShown: false}}/>
 
      <Stack.Screen name="Signup" component={Signup} options={{headerShown: false}}/>
@@ -52,7 +77,7 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   ) : (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
       <ActivityIndicator size={"large"} color={"red"} />
     </View>
   );

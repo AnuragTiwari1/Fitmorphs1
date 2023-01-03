@@ -7,14 +7,16 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Tab = createBottomTabNavigator();
 
 //import screens
-import Home from "../../screens/Home";
-import Profile from "../../screens/Profile";
-import GetCoach from "../../screens/GetCoach";
+import Home from "../screens/Home";
+import Profile from "../screens/Profile";
+import GetCoach from "../screens/GetCoach";
 import Responsive from "../screens/Responsive";
-import Plan from "../../screens/Plan";
-import Diet from "../../screens/Diet";
-import BuyPlan from "../../screens/BuyPlan";
-import BuyPlan from "../../screens/BuyPlan";
+import Plan from "../screens/Plan";
+import Diet from "../screens/Diet";
+import BuyPlan from "../screens/BuyPlan";
+import BFP from "../screens/BFP";
+import Tools from "../screens/Tools";
+import Test from "../screens/Test";
 
 const BottomNavigator = () => {
   return (
@@ -58,8 +60,8 @@ const BottomNavigator = () => {
       />
 
       <Tab.Screen
-        name="Diet"
-        component={Diet}
+        name="BuyPlan"
+        component={BuyPlan}
         options={{
           headerShown: false,
           tabBarIcon: () => (
@@ -69,12 +71,12 @@ const BottomNavigator = () => {
       />
 
       <Tab.Screen
-        name="BMR"
-        component={BMR}
+        name="Tools"
+        component={Tools}
         options={{
           headerShown: false,
           tabBarIcon: () => (
-            <MaterialCommunityIcons name="food-apple" size={25} />
+            <MaterialCommunityIcons name="calculator-variant" size={25} />
           ),
         }}
       />

@@ -37,6 +37,17 @@ const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [myData, setMyData] = useState([]);
 
+  const [user, setUser] = useState({});
+
+  const findUser = async () => {
+    const result = await AsyncStorage.getItem("user_data");
+    console.log(result);
+    setUser(JSON.parse(result));
+  };
+  useEffect(() => {
+    findUser();
+  }, []);
+
   const navigation = useNavigation();
   const getUserData = () => {
     axios
@@ -90,7 +101,7 @@ const Home = () => {
       <View
         style={{
           flexDirection: "row",
-
+          flex: 1,
           marginBottom: moderateScale(30),
           paddingHorizontal: moderateScale(1),
         }}
@@ -107,8 +118,8 @@ const Home = () => {
 
             <Text style={styles.categoryText}>
               {item.sCategory}
-              {"\n"}
-              {item.iCategoryId}
+              {/* {"\n"}
+              {item.iCategoryId} */}
             </Text>
           </TouchableOpacity>
         </View>
@@ -130,10 +141,7 @@ const Home = () => {
             <Header2 />
 
             <View style={styles.customInputContainer}>
-              <TextInput
-                placeholder="Enter Your Email"
-                placeholderTextColor={"grey"}
-              />
+              <TextInput placeholder="Search" placeholderTextColor={"grey"} />
               <TouchableOpacity
                 style={{ marginTop: moderateScale(10) }}
                 onPress={() => loginUser()}
@@ -169,6 +177,7 @@ const Home = () => {
               ]}
             >
               Health Services
+              {/* <Text style={{ fontSize: 20 }}>Email = {user.uid}</Text> */}
             </Text>
 
             <FlatList

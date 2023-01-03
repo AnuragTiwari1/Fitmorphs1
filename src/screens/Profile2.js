@@ -7,7 +7,6 @@ import {
   Image,
   ScrollView,
   FlatList,
-  refreshControl,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -18,11 +17,9 @@ import { Button } from "@rneui/themed";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
-import { RefreshControl } from "react-native";
 
 const Profile = ({ route, navigation }) => {
   const [isLoaded, setIsLoaded] = useState(true);
-  const [isRefreshing, setIsRefreshing] = React.useState(false);
   const [myData, setMyData] = useState([]);
 
   const [user, setUser] = useState({});
@@ -32,14 +29,11 @@ const Profile = ({ route, navigation }) => {
     console.log(result);
     setUser(JSON.parse(result));
   };
-  useEffect(() => {
-    findUser();
-    getUserData();
 
-    // setTimeout(async () => {
-    //   handleRefresh();
-    // }, 2000);
-  }, [user?.uid]);
+  useEffect(() => {
+    getUserData();
+    findUser();
+  }, []);
 
   const getUserData = () => {
     axios
@@ -52,39 +46,16 @@ const Profile = ({ route, navigation }) => {
       .finally(() => setIsLoaded(false));
   };
 
-  const handleRefresh = async () => {
-    console.log("function is calling");
-
-    setIsRefreshing(true);
-
-    getUserData(); // await means till it dowsnt get data it will not execute function below it
-
-    setIsRefreshing(false);
-
-    // setTimeout(() => {
-    //   setIsRefreshing(false);
-    //   //   console.log("function is ending");
-    // }, 2000);
-    console.log("function is ending");
-  };
-
   return (
     <SafeAreaProvider style={styles.container}>
       <View
         style={{
           flex: 1,
           width: "100%",
-          height: 1000,
+          height: "100%",
         }}
       >
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefreshing}
-              onRefresh={() => handleRefresh()}
-            />
-          }
-        >
+        <ScrollView>
           <FlatList
             data={myData}
             renderItem={({ item }) => (
@@ -133,7 +104,7 @@ const Profile = ({ route, navigation }) => {
             Personal Information
           </Text>
 
-          {/* <View>
+          <View>
             <Text> Email = {user.uid}</Text>
             <FlatList
               data={myData}
@@ -145,7 +116,7 @@ const Profile = ({ route, navigation }) => {
                 </>
               )}
             />
-          </View> */}
+          </View>
 
           <FlatList
             data={myData}
@@ -162,18 +133,14 @@ const Profile = ({ route, navigation }) => {
 
                   <Card.Title style={styles.inputheading}>Gender</Card.Title>
 
-                  <Input
-                    placeholder="Gender"
-                    style={styles.inputplaceholder}
-                    value={item.sGender}
-                  />
+                  <Input placeholder="Gender" style={styles.inputplaceholder} />
 
                   <Card.Title style={styles.inputheading}>Height</Card.Title>
 
                   <Input
                     placeholder="Height in feet"
                     style={styles.inputplaceholder}
-                    value={item.sHeight}
+                    value={item.sEmailId}
                   />
 
                   <Card.Title style={styles.inputheading}>Weight</Card.Title>
@@ -181,7 +148,6 @@ const Profile = ({ route, navigation }) => {
                   <Input
                     placeholder="Weight in kgs"
                     style={styles.inputplaceholder}
-                    value={item.sWeight}
                   />
 
                   <Card.Title style={styles.inputheading}>
@@ -191,7 +157,6 @@ const Profile = ({ route, navigation }) => {
                   <Input
                     placeholder="Weight in kgs"
                     style={styles.inputplaceholder}
-                    value={item.sWeight_Target}
                   />
 
                   <Button
@@ -204,8 +169,8 @@ const Profile = ({ route, navigation }) => {
                     }}
                     containerStyle={{
                       width: "100%",
-                      marginBottom: 200,
-                      marginTop: 10,
+
+                      marginVertical: 10,
                     }}
                     titleStyle={{ fontWeight: "bold" }}
                   />

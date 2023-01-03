@@ -7,22 +7,19 @@ import {
   Image,
   ScrollView,
   FlatList,
-  refreshControl,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Header, Icon, Card, Tile, Input } from "@rneui/themed";
 import { Button } from "@rneui/themed";
-
+import BackgroundImg from "../../assets/img/undraw_fitness_tracker_3033.png";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
-import { RefreshControl } from "react-native";
 
-const Profile = ({ route, navigation }) => {
+const BMR = ({ route, navigation }) => {
   const [isLoaded, setIsLoaded] = useState(true);
-  const [isRefreshing, setIsRefreshing] = React.useState(false);
   const [myData, setMyData] = useState([]);
 
   const [user, setUser] = useState({});
@@ -33,13 +30,13 @@ const Profile = ({ route, navigation }) => {
     setUser(JSON.parse(result));
   };
   useEffect(() => {
+    console.log("findUser() function is calling");
     findUser();
+    console.log("findUser() function is ended");
+    console.log("getUserData() function is calling");
     getUserData();
-
-    // setTimeout(async () => {
-    //   handleRefresh();
-    // }, 2000);
-  }, [user?.uid]);
+    console.log("getUserData() function is ended");
+  }, []);
 
   const getUserData = () => {
     axios
@@ -52,39 +49,14 @@ const Profile = ({ route, navigation }) => {
       .finally(() => setIsLoaded(false));
   };
 
-  const handleRefresh = async () => {
-    console.log("function is calling");
-
-    setIsRefreshing(true);
-
-    getUserData(); // await means till it dowsnt get data it will not execute function below it
-
-    setIsRefreshing(false);
-
-    // setTimeout(() => {
-    //   setIsRefreshing(false);
-    //   //   console.log("function is ending");
-    // }, 2000);
-    console.log("function is ending");
-  };
-
   return (
     <SafeAreaProvider style={styles.container}>
       <View
         style={{
           flex: 1,
-          width: "100%",
-          height: 1000,
         }}
       >
-        <ScrollView
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefreshing}
-              onRefresh={() => handleRefresh()}
-            />
-          }
-        >
+        <ScrollView>
           <FlatList
             data={myData}
             renderItem={({ item }) => (
@@ -124,95 +96,67 @@ const Profile = ({ route, navigation }) => {
               </>
             )}
           />
-          <Text
+          {/* <Text
             style={[
               styles.heading,
               { marginVertical: 10, textAlign: "left", marginHorizontal: 20 },
             ]}
           >
             Personal Information
-          </Text>
+          </Text> */}
 
-          {/* <View>
-            <Text> Email = {user.uid}</Text>
+          <View>
             <FlatList
               data={myData}
-              renderItem={({ item }) => (
-                <>
-                  <Text>UserId : {item.iUserId}</Text>
-                  <Text>Name : {item.sName}</Text>
-                  <Text>Email : {item.sEmailId}</Text>
-                </>
-              )}
+              renderItem={({ item }) => {
+                const bmr_men_weight = 13.397 * item.sWeight;
+                const bmr_men_height = 4.799 * item.sHeight;
+
+                const bmr_men_age = 5.677 * item.sAge;
+                const bmr_men = parseFloat(
+                  88.362 + bmr_men_weight + bmr_men_height - bmr_men_age
+                ).toFixed(2);
+
+                const bmr_women_weight = 9.247 * item.sWeight;
+                const bmr_women_height = 3.098 * item.sHeight;
+
+                const bmr_women_age = 4.33 * item.sAge;
+                const bmr_women = parseFloat(
+                  447.593 + bmr_women_weight + bmr_women_height - bmr_women_age
+                ).toFixed(2);
+
+                if (item.sGender == "Male") {
+                  return (
+                    <Card style={{ flex: 0.5 }}>
+                      <Card.Title style={styles.inputheading}>
+                        Your BMR
+                      </Card.Title>
+                      <Image
+                        source={BackgroundImg}
+                        style={styles.bgimg}
+                      ></Image>
+
+                      <Text style={styles.sumtext}>{bmr_men} kcal / day</Text>
+                    </Card>
+                  );
+                } else {
+                  return (
+                    <Card style={{ flex: 0.5 }}>
+                      <Card.Title style={styles.inputheading}>
+                        Your BMR
+                      </Card.Title>
+                      <Image
+                        source={BackgroundImg}
+                        style={styles.bgimg}
+                      ></Image>
+
+                      <Text style={styles.sumtext}>{bmr_women} kcal / day</Text>
+                    </Card>
+                  );
+                }
+              }}
             />
-          </View> */}
-
-          <FlatList
-            data={myData}
-            renderItem={({ item }) => (
-              <>
-                <Card>
-                  <Card.Title style={styles.inputheading}>Name</Card.Title>
-
-                  <Input
-                    placeholder="Name"
-                    style={styles.inputplaceholder}
-                    value={item.sName}
-                  />
-
-                  <Card.Title style={styles.inputheading}>Gender</Card.Title>
-
-                  <Input
-                    placeholder="Gender"
-                    style={styles.inputplaceholder}
-                    value={item.sGender}
-                  />
-
-                  <Card.Title style={styles.inputheading}>Height</Card.Title>
-
-                  <Input
-                    placeholder="Height in feet"
-                    style={styles.inputplaceholder}
-                    value={item.sHeight}
-                  />
-
-                  <Card.Title style={styles.inputheading}>Weight</Card.Title>
-
-                  <Input
-                    placeholder="Weight in kgs"
-                    style={styles.inputplaceholder}
-                    value={item.sWeight}
-                  />
-
-                  <Card.Title style={styles.inputheading}>
-                    Target Weight
-                  </Card.Title>
-
-                  <Input
-                    placeholder="Weight in kgs"
-                    style={styles.inputplaceholder}
-                    value={item.sWeight_Target}
-                  />
-
-                  <Button
-                    title="Save"
-                    buttonStyle={{
-                      backgroundColor: "black",
-                      borderWidth: 2,
-                      borderColor: "white",
-                      borderRadius: 30,
-                    }}
-                    containerStyle={{
-                      width: "100%",
-                      marginBottom: 200,
-                      marginTop: 10,
-                    }}
-                    titleStyle={{ fontWeight: "bold" }}
-                  />
-                </Card>
-              </>
-            )}
-          />
+          </View>
         </ScrollView>
       </View>
     </SafeAreaProvider>
@@ -223,6 +167,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f6fbf6",
+  },
+  bgimg: {
+    height: 200,
+    width: 200,
+    marginHorizontal: 70,
   },
   headerContainer: {
     justifyContent: "center",
@@ -235,14 +184,22 @@ const styles = StyleSheet.create({
   inputplaceholder: {
     // color: '#585858',
     color: "black",
-    fontSize: 14,
+    fontSize: 24,
   },
   inputheading: {
-    // color: '#585858',
-    color: "black",
-    fontSize: 16,
+    color: "#474948",
+    fontSize: 24,
     fontWeight: "bold",
-    textAlign: "left",
+    textAlign: "center",
+  },
+  sumtext: {
+    flex: 1,
+    color: "#00BFFF",
+    fontSize: 48,
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 30,
+    height: 400,
   },
   heading: {
     // color: '#585858',
@@ -295,4 +252,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profile;
+export default BMR;

@@ -6,32 +6,54 @@ import {
   TextInput,
   Image,
   ScrollView,
+  FlatList,
+  RefreshControl,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-
+import axios from "axios";
 import { Header, Icon, Card, Tile, Input } from "@rneui/themed";
 import { Button, Badge } from "@rneui/themed";
 import CoachImage from "../../assets/img/coach1.jpg";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const BuyPlan = ({ navigation, route }) => {
   const { iCategoryId } = route.params;
-
+  const [myData, setMyData] = useState([]);
   const [user, setUser] = useState({});
-
-  const findUser = async () => {
-    const result = await AsyncStorage.getItem("user_data");
-    console.log(result);
-    setUser(JSON.parse(result));
-  };
-
+  const [isRefreshing, setIsRefreshing] = React.useState(false);
+  const month = " / month";
+  const rs = " ₹ ";
   useEffect(() => {
-    findUser();
-  }, []);
+    getUserData();
+  }, [iCategoryId]);
 
+  const getUserData = () => {
+    axios
+      .get("https://engistack.com/test_reactapp/catdata_fitmorphs.php", {
+        params: {
+          iCategoryId: iCategoryId,
+        },
+      })
+      .then((json) => setMyData(json.data))
+      .finally(() => setIsLoaded(false));
+  };
+  const handleRefresh = async () => {
+    console.log("function is calling");
+
+    setIsRefreshing(true);
+
+    getUserData(); // await means till it dowsnt get data it will not execute function below it
+
+    setIsRefreshing(false);
+
+    // setTimeout(() => {
+    //   setIsRefreshing(false);
+    //   //   console.log("function is ending");
+    // }, 2000);
+    console.log("function is ending");
+  };
   return (
     <SafeAreaProvider style={styles.container}>
       <View
@@ -42,7 +64,14 @@ const BuyPlan = ({ navigation, route }) => {
           zIndex: 2,
         }}
       >
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefreshing}
+              onRefresh={() => handleRefresh()}
+            />
+          }
+        >
           <View style={{ marginTop: 50 }}>
             <Image
               style={{
@@ -64,172 +93,193 @@ const BuyPlan = ({ navigation, route }) => {
               borderTopStartRadius: 100,
             }}
           >
-            <Text
-              style={[
-                styles.heading,
-                {
-                  marginTop: -100,
-                  textAlign: "center",
-                  color: "white",
-                  marginBottom: 20,
-                },
-              ]}
+            <View
+              style={{
+                flexDirection: "row",
+
+                marginTop: -100,
+              }}
             >
-              Subscription Detail
-            </Text>
-
-            <Card containerStyle={{ borderRadius: 30 }}>
-              <View
-                style={{
-                  flex: 1,
-                  alignItems: "center",
-                  justifyContent: "center",
-                  marginTop: 20,
-                }}
-              >
-                <Card.Title style={styles.plannameh1}>
-                  Caterory Id Params {iCategoryId}
-                  Category = {user.sCategory}
-                  {"\n"} 12 Week Transformation Package
-                  <Text style={styles.mainHeader}>
-                    {"\n"} Id = {user.iCategoryId}🙌
-                    {"\n"} UserId = {user.iUserId}🙌
-                  </Text>
-                </Card.Title>
-                <Button
-                  title="₹ 1999 / month"
-                  buttonStyle={{
-                    backgroundColor: "#252525",
-                    borderWidth: 2,
-                    borderColor: "white",
-                    borderRadius: 10,
-                    marginHorizontal: 5,
-                  }}
-                  containerStyle={{
-                    width: "100%",
-                  }}
-                  titleStyle={{ fontWeight: "bold" }}
-                />
-              </View>
-
-              <Card.Title style={styles.plannameh3}>
-                Fitness and Nutrition Coaching
-              </Card.Title>
+              <Icon
+                raised
+                name="long-arrow-left"
+                type="font-awesome"
+                color="black"
+                size={20}
+                containerStyle={{}}
+                onPress={() => navigation.goBack()}
+              />
               <Text
-                style={{
-                  textAlign: "left",
-                  textDecorationLine: "underline",
-                  fontWeight: "600",
-                }}
+                style={[
+                  styles.heading,
+                  {
+                    color: "white",
+                    marginBottom: 20,
+                    marginTop: 10,
+
+                    marginHorizontal: 40,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                  },
+                ]}
               >
-                Includes :
+                Subscription Detail
               </Text>
-              <View style={{ marginTop: 20 }}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    marginBottom: 10,
-                  }}
-                >
-                  <Icon
-                    name="check-circle"
-                    type="font-awesome"
-                    color="green"
-                    size={16}
-                    style={{
-                      justifyContent: "flex-start",
-                      paddingTop: 4,
-                      marginRight: 10,
-                    }}
-                  />
-                  <Text style={{ flex: 1, paddingLeft: 5 }}>
-                    Internationally Certified Coaches
-                  </Text>
-                </View>
+            </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    marginBottom: 10,
-                  }}
-                >
-                  <Icon
-                    name="check-circle"
-                    type="font-awesome"
-                    color="green"
-                    size={16}
-                    style={{
-                      justifyContent: "flex-start",
-                      paddingTop: 4,
-                      marginRight: 10,
-                    }}
-                  />
-                  <Text style={{ flex: 1, paddingLeft: 5 }}>
-                    Personalized Nutrition & Training Consultation for 2 people:
-                    This includes diet plans, training programs, and complete
-                    guidance for the duration of the package
-                  </Text>
-                </View>
+            <FlatList
+              data={myData}
+              renderItem={({ item }) => (
+                <>
+                  <Card containerStyle={{ borderRadius: 30 }}>
+                    <View
+                      style={{
+                        flex: 1,
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginTop: 20,
+                      }}
+                    >
+                      <Card.Title style={styles.plannameh1}>
+                        {item.sCategory}
+                        {"\n"} 12 Week Transformation Package
+                      </Card.Title>
+                      <Button
+                        // title="₹  item.sPrice / month"
+                        title={[rs, item.sPrice, month]}
+                        buttonStyle={{
+                          backgroundColor: "#252525",
+                          borderWidth: 2,
+                          borderColor: "white",
+                          borderRadius: 10,
+                          marginHorizontal: 5,
+                        }}
+                        containerStyle={{
+                          width: "100%",
+                        }}
+                        titleStyle={{ fontWeight: "bold" }}
+                      />
+                    </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    marginBottom: 10,
-                  }}
-                >
-                  <Icon
-                    name="check-circle"
-                    type="font-awesome"
-                    color="green"
-                    size={16}
-                    style={{
-                      justifyContent: "flex-start",
-                      paddingTop: 4,
-                      marginRight: 10,
-                    }}
-                  />
-                  <Text style={{ flex: 1, paddingLeft: 5 }}>
-                    Weekly Monitoring: Fix in-depth weekly calls at your
-                    convenience to discuss your progress and receive course
-                    corrections, if needed
-                  </Text>
-                </View>
+                    <Card.Title style={styles.plannameh3}>
+                      Fitness and Nutrition Coaching
+                    </Card.Title>
+                    <Text
+                      style={{
+                        textAlign: "left",
+                        textDecorationLine: "underline",
+                        fontWeight: "600",
+                      }}
+                    >
+                      Includes :
+                    </Text>
+                    <View style={{ marginTop: 20 }}>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          marginBottom: 10,
+                        }}
+                      >
+                        <Icon
+                          name="check-circle"
+                          type="font-awesome"
+                          color="green"
+                          size={16}
+                          style={{
+                            justifyContent: "flex-start",
+                            paddingTop: 4,
+                            marginRight: 10,
+                          }}
+                        />
+                        <Text style={{ flex: 1, paddingLeft: 5 }}>
+                          Internationally Certified Coaches
+                        </Text>
+                      </View>
 
-                <View
-                  style={{
-                    flexDirection: "row",
-                    marginBottom: 10,
-                  }}
-                >
-                  <Icon
-                    name="check-circle"
-                    type="font-awesome"
-                    color="green"
-                    size={16}
-                    style={{
-                      justifyContent: "flex-start",
-                      paddingTop: 4,
-                      marginRight: 10,
-                    }}
-                  />
-                  <Text style={{ flex: 1, paddingLeft: 5 }}>
-                    Continuous Support: Your Coach is just a phone call or
-                    message away (Note: Sundays closed).
-                  </Text>
-                </View>
-              </View>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          marginBottom: 10,
+                        }}
+                      >
+                        <Icon
+                          name="check-circle"
+                          type="font-awesome"
+                          color="green"
+                          size={16}
+                          style={{
+                            justifyContent: "flex-start",
+                            paddingTop: 4,
+                            marginRight: 10,
+                          }}
+                        />
+                        <Text style={{ flex: 1, paddingLeft: 5 }}>
+                          Personalized Nutrition & Training Consultation for 2
+                          people: This includes diet plans, training programs,
+                          and complete guidance for the duration of the package
+                        </Text>
+                      </View>
 
-              <View
-                style={{
-                  flexDirection: "row",
-                  flex: 1,
-                  justifyContent: "space-evenly",
-                  marginTop: 10,
-                  marginBottom: 20,
-                }}
-              ></View>
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          marginBottom: 10,
+                        }}
+                      >
+                        <Icon
+                          name="check-circle"
+                          type="font-awesome"
+                          color="green"
+                          size={16}
+                          style={{
+                            justifyContent: "flex-start",
+                            paddingTop: 4,
+                            marginRight: 10,
+                          }}
+                        />
+                        <Text style={{ flex: 1, paddingLeft: 5 }}>
+                          Weekly Monitoring: Fix in-depth weekly calls at your
+                          convenience to discuss your progress and receive
+                          course corrections, if needed
+                        </Text>
+                      </View>
 
-              {/* <View
+                      <View
+                        style={{
+                          flexDirection: "row",
+                          marginBottom: 10,
+                        }}
+                      >
+                        <Icon
+                          name="check-circle"
+                          type="font-awesome"
+                          color="green"
+                          size={16}
+                          style={{
+                            justifyContent: "flex-start",
+                            paddingTop: 4,
+                            marginRight: 10,
+                          }}
+                        />
+                        <Text style={{ flex: 1, paddingLeft: 5 }}>
+                          Continuous Support: Your Coach is just a phone call or
+                          message away (Note: Sundays closed).
+                        </Text>
+                      </View>
+                    </View>
+
+                    <View
+                      style={{
+                        flexDirection: "row",
+                        flex: 1,
+                        justifyContent: "space-evenly",
+                        marginTop: 10,
+                        marginBottom: 20,
+                      }}
+                    ></View>
+
+                    {/* <View
                 style={{
                   flexDirection: "row",
                   flex: 1,
@@ -252,7 +302,10 @@ const BuyPlan = ({ navigation, route }) => {
                   titleStyle={{ fontWeight: "bold" }}
                 /> 
               </View> */}
-            </Card>
+                  </Card>
+                </>
+              )}
+            />
           </View>
         </ScrollView>
         <View
@@ -319,7 +372,6 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "left",
   },
   headerRight: {
     display: "flex",
