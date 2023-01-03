@@ -14,7 +14,6 @@ import Responsive from "../screens/Responsive";
 import Plan from "../screens/Plan";
 import Diet from "../screens/Diet";
 import BuyPlan from "../screens/BuyPlan";
-<<<<<<< HEAD
 import BFP from "../screens/BFP";
 import Tools from "../screens/Tools";
 import Test from "../screens/Test";
@@ -63,8 +62,6 @@ const CustomTabBarButton = ({ children, onPress }) => (
   </TouchableOpacity>
 );
 
-=======
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 const BottomNavigator = () => {
   return (
     <Tab.Navigator
@@ -122,7 +119,6 @@ const BottomNavigator = () => {
         component={GetCoach}
         options={{
           headerShown: false,
-<<<<<<< HEAD
           tabBarIcon: ({ focused }) => (
             <View>
               <MaterialCommunityIcons
@@ -186,10 +182,6 @@ const BottomNavigator = () => {
                 Tools
               </Text>
             </View>
-=======
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="dumbbell" size={25} />
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
           ),
         }}
       />
@@ -200,7 +192,6 @@ const BottomNavigator = () => {
         options={{
           headerShown: false,
 
-<<<<<<< HEAD
           tabBarIcon: ({ focused }) => (
             <View>
               <MaterialCommunityIcons
@@ -218,35 +209,6 @@ const BottomNavigator = () => {
                 Profile
               </Text>
             </View>
-=======
-      <Tab.Screen
-        name="My Plan"
-        component={Plan}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => <BottomIconsContainer name="eye" />,
-        }}
-      />
-
-      <Tab.Screen
-        name="Diet"
-        component={Diet}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="food-apple" size={25} />
-          ),
-        }}
-      />
-
-      <Tab.Screen
-        name="BuyPlan"
-        component={BuyPlan}
-        options={{
-          headerShown: false,
-          tabBarIcon: () => (
-            <MaterialCommunityIcons name="food-apple" size={25} />
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
           ),
         }}
       />

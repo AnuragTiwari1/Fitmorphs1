@@ -37,7 +37,6 @@ const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [myData, setMyData] = useState([]);
 
-<<<<<<< HEAD
   const [user, setUser] = useState({});
 
   const findUser = async () => {
@@ -49,8 +48,6 @@ const Home = () => {
     findUser();
   }, []);
 
-=======
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
   const navigation = useNavigation();
   const getUserData = () => {
     axios
@@ -104,11 +101,7 @@ const Home = () => {
       <View
         style={{
           flexDirection: "row",
-<<<<<<< HEAD
           flex: 1,
-=======
-
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
           marginBottom: moderateScale(30),
           paddingHorizontal: moderateScale(1),
         }}
@@ -125,13 +118,8 @@ const Home = () => {
 
             <Text style={styles.categoryText}>
               {item.sCategory}
-<<<<<<< HEAD
               {/* {"\n"}
               {item.iCategoryId} */}
-=======
-              {"\n"}
-              {item.iCategoryId}
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
             </Text>
           </TouchableOpacity>
         </View>
@@ -153,7 +141,6 @@ const Home = () => {
             <Header2 />
 
             <View style={styles.customInputContainer}>
-<<<<<<< HEAD
               <TextInput placeholder="Search" placeholderTextColor={"grey"} />
               <TouchableOpacity
                 style={{ marginTop: moderateScale(10) }}
@@ -179,36 +166,6 @@ const Home = () => {
               />
             </View>
 
-=======
-              <TextInput
-                placeholder="Enter Your Email"
-                placeholderTextColor={"grey"}
-              />
-              <TouchableOpacity
-                style={{ marginTop: moderateScale(10) }}
-                onPress={() => loginUser()}
-              >
-                <FontAwesome
-                  name="search"
-                  size={20}
-                  style={{ color: "#F6BB0A" }}
-                />
-              </TouchableOpacity>
-            </View>
-
-            <View style={{ marginVertical: moderateScale(-40) }}>
-              <Image
-                style={{
-                  width: "95%",
-                  height: verticalScale(300),
-                  marginHorizontal: moderateScale(10),
-                }}
-                resizeMode="contain"
-                source={Slider1}
-              />
-            </View>
-
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
             <Text
               style={[
                 styles.heading,
@@ -220,10 +177,7 @@ const Home = () => {
               ]}
             >
               Health Services
-<<<<<<< HEAD
               {/* <Text style={{ fontSize: 20 }}>Email = {user.uid}</Text> */}
-=======
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
             </Text>
 
             <FlatList

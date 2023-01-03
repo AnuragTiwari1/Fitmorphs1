@@ -14,11 +14,9 @@ import Responsive from "../screens/Responsive";
 import Plan from "../../screens/Plan";
 import Diet from "../../screens/Diet";
 import BuyPlan from "../../screens/BuyPlan";
-<<<<<<< HEAD
+
 import BuyPlan from "../../screens/BuyPlan";
 
-=======
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 const BottomNavigator = () => {
   return (
     <Tab.Navigator>
@@ -72,13 +70,10 @@ const BottomNavigator = () => {
       />
 
       <Tab.Screen
-<<<<<<< HEAD
         name="BMR"
         component={BMR}
-=======
         name="BuyPlan"
         component={BuyPlan}
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
         options={{
           headerShown: false,
           tabBarIcon: () => (

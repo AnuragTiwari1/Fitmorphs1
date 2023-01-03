@@ -56,11 +56,10 @@ const Login = () => {
       console.log("password :", password);
 
       const { data } = await axios.post(
-<<<<<<< HEAD
         "https://engistack.com/test_reactapp/login.php",
-=======
+
         "http://192.168.0.109/react_native/api/login.php",
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
+
         {
           email: email,
           password: password,
@@ -70,15 +69,13 @@ const Login = () => {
       console.log(data);
 
       const userData = {
-<<<<<<< HEAD
         email: data.data.sEmailId,
         uid: data.data.iUserId,
         uname: data.data.sName,
-=======
+
         email: data.data.email,
         uid: data.data.id,
         uname: data.data.uname,
->>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
       };
 
       if (data.status == "success") {
