@@ -7,7 +7,10 @@ import {
   Image,
   ScrollView,
   FlatList,
+<<<<<<< HEAD
   refreshControl,
+=======
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -18,12 +21,20 @@ import { Button } from "@rneui/themed";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
+<<<<<<< HEAD
 import { RefreshControl } from "react-native";
 
 const Profile = ({ route, navigation }) => {
   const [isLoaded, setIsLoaded] = useState(true);
   const [isRefreshing, setIsRefreshing] = React.useState(false);
   const [myData, setMyData] = useState([]);
+=======
+
+const Profile = ({ route, navigation }) => {
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [myData, setMyData] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 
   const [user, setUser] = useState({});
 
@@ -32,6 +43,7 @@ const Profile = ({ route, navigation }) => {
     console.log(result);
     setUser(JSON.parse(result));
   };
+<<<<<<< HEAD
   useEffect(() => {
     findUser();
     getUserData();
@@ -40,18 +52,30 @@ const Profile = ({ route, navigation }) => {
     //   handleRefresh();
     // }, 2000);
   }, [user?.uid]);
+=======
+
+  useEffect(() => {
+    getUserData();
+    findUser();
+  }, []);
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 
   const getUserData = () => {
     axios
       .get("https://engistack.com/test_reactapp/userdata_fitmorphs.php", {
         params: {
+<<<<<<< HEAD
           iUserId: user.uid,
+=======
+          iUserId: 6,
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
         },
       })
       .then((json) => setMyData(json.data))
       .finally(() => setIsLoaded(false));
   };
 
+<<<<<<< HEAD
   const handleRefresh = async () => {
     console.log("function is calling");
 
@@ -68,6 +92,8 @@ const Profile = ({ route, navigation }) => {
     console.log("function is ending");
   };
 
+=======
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
   return (
     <SafeAreaProvider style={styles.container}>
       <View
@@ -77,6 +103,7 @@ const Profile = ({ route, navigation }) => {
           height: 1000,
         }}
       >
+<<<<<<< HEAD
         <ScrollView
           refreshControl={
             <RefreshControl
@@ -85,6 +112,9 @@ const Profile = ({ route, navigation }) => {
             />
           }
         >
+=======
+        <ScrollView>
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
           <FlatList
             data={myData}
             renderItem={({ item }) => (
@@ -133,19 +163,31 @@ const Profile = ({ route, navigation }) => {
             Personal Information
           </Text>
 
+<<<<<<< HEAD
           {/* <View>
             <Text> Email = {user.uid}</Text>
+=======
+          <View>
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
             <FlatList
               data={myData}
               renderItem={({ item }) => (
                 <>
+<<<<<<< HEAD
+=======
+                  <Text>Email Id : {user.email}</Text>
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
                   <Text>UserId : {item.iUserId}</Text>
                   <Text>Name : {item.sName}</Text>
                   <Text>Email : {item.sEmailId}</Text>
                 </>
               )}
             />
+<<<<<<< HEAD
           </View> */}
+=======
+          </View>
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 
           <FlatList
             data={myData}
@@ -162,18 +204,25 @@ const Profile = ({ route, navigation }) => {
 
                   <Card.Title style={styles.inputheading}>Gender</Card.Title>
 
+<<<<<<< HEAD
                   <Input
                     placeholder="Gender"
                     style={styles.inputplaceholder}
                     value={item.sGender}
                   />
+=======
+                  <Input placeholder="Gender" style={styles.inputplaceholder} />
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
 
                   <Card.Title style={styles.inputheading}>Height</Card.Title>
 
                   <Input
                     placeholder="Height in feet"
                     style={styles.inputplaceholder}
+<<<<<<< HEAD
                     value={item.sHeight}
+=======
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
                   />
 
                   <Card.Title style={styles.inputheading}>Weight</Card.Title>
@@ -181,7 +230,10 @@ const Profile = ({ route, navigation }) => {
                   <Input
                     placeholder="Weight in kgs"
                     style={styles.inputplaceholder}
+<<<<<<< HEAD
                     value={item.sWeight}
+=======
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
                   />
 
                   <Card.Title style={styles.inputheading}>
@@ -191,7 +243,10 @@ const Profile = ({ route, navigation }) => {
                   <Input
                     placeholder="Weight in kgs"
                     style={styles.inputplaceholder}
+<<<<<<< HEAD
                     value={item.sWeight_Target}
+=======
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
                   />
 
                   <Button
@@ -204,8 +259,13 @@ const Profile = ({ route, navigation }) => {
                     }}
                     containerStyle={{
                       width: "100%",
+<<<<<<< HEAD
                       marginBottom: 200,
                       marginTop: 10,
+=======
+
+                      marginVertical: 10,
+>>>>>>> 607e1e34dec4e9b9e88f752d69b2a0f2bb6bae95
                     }}
                     titleStyle={{ fontWeight: "bold" }}
                   />
