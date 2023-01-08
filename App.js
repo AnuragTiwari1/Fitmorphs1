@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+import AppIntro from "./src/screens/AppIntro";
 import Splash from "./src/screens/Splash";
 import Login from "./src/screens/Login";
 import Signup from "./src/screens/Signup";
@@ -38,13 +39,19 @@ export default function App() {
 
   return screenName ? (
     <NavigationContainer>
-      <StatusBar backgroundColor="red" />
+      {/* <StatusBar backgroundColor="#febe29" /> */}
       <Stack.Navigator initialRouteName={Splash}>
         <Stack.Screen
           name="Splash"
           component={Splash}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="AppIntro"
+          component={AppIntro}
+          options={{ headerShown: false }}
+        />
+
         <Stack.Screen
           name="Login"
           component={Login}

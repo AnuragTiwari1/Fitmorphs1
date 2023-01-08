@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
   FlatList,
+  refreshControl,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -17,11 +18,12 @@ import BackgroundImg from "../../assets/img/undraw_fitness_tracker_3033.png";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
+import { RefreshControl } from "react-native";
 
 const CalorieCalculator = ({ route, navigation }) => {
   const [isLoaded, setIsLoaded] = useState(true);
   const [myData, setMyData] = useState([]);
-
+  const [isRefreshing, setIsRefreshing] = React.useState(false);
   const [user, setUser] = useState({});
 
   const findUser = async () => {
@@ -32,7 +34,7 @@ const CalorieCalculator = ({ route, navigation }) => {
   useEffect(() => {
     findUser();
     getUserData();
-  }, []);
+  }, [user?.uid]);
 
   const getUserData = () => {
     axios
@@ -45,6 +47,22 @@ const CalorieCalculator = ({ route, navigation }) => {
       .finally(() => setIsLoaded(false));
   };
 
+  const handleRefresh = async () => {
+    console.log("function is calling");
+
+    setIsRefreshing(true);
+
+    getUserData(); // await means till it dowsnt get data it will not execute function below it
+
+    setIsRefreshing(false);
+
+    // setTimeout(() => {
+    //   setIsRefreshing(false);
+    //   //   console.log("function is ending");
+    // }, 2000);
+    console.log("function is ending");
+  };
+
   return (
     <SafeAreaProvider style={styles.container}>
       <View
@@ -52,7 +70,14 @@ const CalorieCalculator = ({ route, navigation }) => {
           flex: 1,
         }}
       >
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefreshing}
+              onRefresh={() => handleRefresh()}
+            />
+          }
+        >
           <FlatList
             data={myData}
             renderItem={({ item }) => (
@@ -136,12 +161,13 @@ const CalorieCalculator = ({ route, navigation }) => {
                         style={styles.bgimg}
                       ></Image>
 
-                      <Text>{bmr_men_weight} </Text>
+                      {/* <Text>{bmr_men_weight} </Text>
                       <Text>{bmr_men_height1} </Text>
                       <Text>{calorie1men} </Text>
                       <Text>{calorie2men} </Text>
 
-                      <Text>{bmr_men_age} </Text>
+                      <Text>{bmr_men_age} </Text> */}
+
                       <Text style={styles.sumtext}>
                         {calorie_men} kcal / day
                       </Text>

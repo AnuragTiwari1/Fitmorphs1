@@ -7,6 +7,7 @@ import {
   Image,
   ScrollView,
   FlatList,
+  refreshControl,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -17,10 +18,12 @@ import BackgroundImg from "../../assets/img/undraw_fitness_tracker_3033.png";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
 import { Avatar } from "@rneui/base";
+import { RefreshControl } from "react-native";
 
 const BMR = ({ route, navigation }) => {
   const [isLoaded, setIsLoaded] = useState(true);
   const [myData, setMyData] = useState([]);
+  const [isRefreshing, setIsRefreshing] = React.useState(false);
 
   const [user, setUser] = useState({});
 
@@ -36,7 +39,7 @@ const BMR = ({ route, navigation }) => {
     console.log("getUserData() function is calling");
     getUserData();
     console.log("getUserData() function is ended");
-  }, []);
+  }, [user?.uid]);
 
   const getUserData = () => {
     axios
@@ -49,6 +52,22 @@ const BMR = ({ route, navigation }) => {
       .finally(() => setIsLoaded(false));
   };
 
+  const handleRefresh = async () => {
+    console.log("function is calling");
+
+    setIsRefreshing(true);
+
+    getUserData(); // await means till it dowsnt get data it will not execute function below it
+
+    setIsRefreshing(false);
+
+    // setTimeout(() => {
+    //   setIsRefreshing(false);
+    //   //   console.log("function is ending");
+    // }, 2000);
+    console.log("function is ending");
+  };
+
   return (
     <SafeAreaProvider style={styles.container}>
       <View
@@ -56,7 +75,14 @@ const BMR = ({ route, navigation }) => {
           flex: 1,
         }}
       >
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={isRefreshing}
+              onRefresh={() => handleRefresh()}
+            />
+          }
+        >
           <FlatList
             data={myData}
             renderItem={({ item }) => (

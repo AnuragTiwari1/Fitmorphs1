@@ -6,36 +6,65 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import BackgroundImg from "../../assets/img/8d1fe8151496153.630d3a08be217.png";
 import FontAwesome from "react-native-vector-icons/FontAwesome5";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, StackActions } from "@react-navigation/native";
 import axios from "axios";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //
+  const [height, setHeight] = useState("");
+  const [weight, setWeight] = useState("");
+
   const navigation = useNavigation();
 
   const signupUser = async () => {
     try {
       console.log("email :", email);
       console.log("password :", password);
+      console.log("height :", height);
+      console.log("weight :", weight);
 
       const { data } = await axios.post(
-        "http://192.168.0.109/react_native/api/signup.php",
+        "https://engistack.com/test_reactapp/signup.php",
         {
           email: email,
           password: password,
+          height: height,
+          weight: weight,
         }
       );
 
       console.log(data);
+      const userData = {
+        email: data.data.sEmailId,
+        uid: data.data.iUserId,
+        uname: data.data.sName,
+
+        // email: data.data.email,
+        // uid: data.data.id,
+        // uname: data.data.uname,
+      };
 
       if (data.status == "success") {
-        Alert.alert("User Created Successfully");
+        //Alert.alert('User Login Successfully');
+        const user = { email: email };
+        await AsyncStorage.setItem("user", JSON.stringify(user));
+        await AsyncStorage.setItem("user_data", JSON.stringify(userData));
+        await AsyncStorage.setItem("isUserLogin", "true");
+
+        navigation.dispatch(
+          // StackActions.replace("Home")  // Replace Login Page with Home Page , means redirect to Hoem Screen if Login
+          StackActions.replace("BottomNavigator", {
+            myName: `${data.data.uname}`,
+            myId: `${data.data.id}`,
+          })
+        );
       } else {
         Alert.alert("User Not Created");
       }
@@ -82,6 +111,24 @@ const Signup = () => {
                 onChangeText={(text) => setPassword(text)}
               />
             </View>
+
+            <View style={styles.customInputContainer}>
+              <Text>Height (cms)</Text>
+              <TextInput
+                placeholder="Enter Your Height in cms"
+                placeholderTextColor={"grey"}
+                onChangeText={(text) => setHeight(text)}
+              />
+            </View>
+
+            <View style={styles.customInputContainer}>
+              <Text>Weight (kgs)</Text>
+              <TextInput
+                placeholder="Enter Your Weight in kgs"
+                placeholderTextColor={"grey"}
+                onChangeText={(text) => setWeight(text)}
+              />
+            </View>
             <View>
               <Text
                 style={{
@@ -95,7 +142,11 @@ const Signup = () => {
                 By selecting Agree and continue below,
                 {"\n"} I agree to
                 <Text
-                  style={{ color: "#02C38E", fontWeight: "bold", fontSize: 12 }}
+                  style={{
+                    color: "#02C38E",
+                    fontWeight: "bold",
+                    fontSize: 12,
+                  }}
                 >
                   {" "}
                   Terms of Service and Privacy Policy

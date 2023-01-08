@@ -193,7 +193,7 @@ const BuyPlan = ({ navigation, route }) => {
                           }}
                         />
                         <Text style={{ flex: 1, paddingLeft: 5 }}>
-                          Internationally Certified Coaches
+                          {item.sDesc1}
                         </Text>
                       </View>
 
@@ -215,9 +215,7 @@ const BuyPlan = ({ navigation, route }) => {
                           }}
                         />
                         <Text style={{ flex: 1, paddingLeft: 5 }}>
-                          Personalized Nutrition & Training Consultation for 2
-                          people: This includes diet plans, training programs,
-                          and complete guidance for the duration of the package
+                          {item.sDesc2}
                         </Text>
                       </View>
 
@@ -239,9 +237,7 @@ const BuyPlan = ({ navigation, route }) => {
                           }}
                         />
                         <Text style={{ flex: 1, paddingLeft: 5 }}>
-                          Weekly Monitoring: Fix in-depth weekly calls at your
-                          convenience to discuss your progress and receive
-                          course corrections, if needed
+                          {item.sDesc3}
                         </Text>
                       </View>
 

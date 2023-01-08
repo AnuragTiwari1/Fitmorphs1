@@ -97,6 +97,7 @@ const Home = () => {
 
   // render the students cards
   const showUserData = ({ item }) => {
+    const image = item.sAge;
     return (
       <View
         style={{
@@ -112,7 +113,10 @@ const Home = () => {
               marginHorizontal={15}
               size={58}
               rounded
-              icon={{ name: "pencil", type: "font-awesome" }}
+              icon={{
+                name: item.sCategoryimage,
+                type: "material-community",
+              }}
               containerStyle={{ backgroundColor: "#F6BB0A" }}
             />
 

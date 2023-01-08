@@ -27,8 +27,11 @@ import { Avatar } from "@rneui/base";
 import Slider1 from "../../assets/img/slider1.png";
 import CoachesCard from "./CoachesCard";
 import Header2 from "../component/Header2";
+import { useNavigation, StackActions } from "@react-navigation/native";
 
 const Plan = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaProvider style={styles.container}>
       <View
@@ -107,214 +110,222 @@ const Plan = () => {
                     type="antdesign"
                     color="#F6BB0A"
                     size={110}
-                    onPress={() => console.log("hello")}
+                    
                   /> */}
-                  <View style={{ marginRight: -10 }}>
-                    <Icon
-                      name="document-outline"
-                      type="ionicon"
-                      color="#F6BB0A"
-                      size={100}
-                      onPress={() => console.log("hello")}
-                    />
+                  <TouchableOpacity onPress={() => navigation.navigate("Diet")}>
+                    <View style={{ marginRight: -10 }}>
+                      <Icon
+                        name="document-outline"
+                        type="ionicon"
+                        color="#F6BB0A"
+                        size={100}
+                      />
 
-                    <Badge
-                      value="Veg"
-                      status="success"
-                      textStyle={{ fontWeight: "bold", fontSize: 8 }}
-                      containerStyle={{
-                        position: "absolute",
-                        marginTop: 10,
-                        marginLeft: 14,
-                        color: "green",
-                      }}
-                    />
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 50,
-                        marginLeft: 37,
-                        fontSize: 12,
-                      }}
-                    >
-                      Fri
-                    </Text>
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 65,
-                        marginLeft: 23,
-                        fontSize: 13,
-                      }}
-                    >
-                      02 Dec
-                    </Text>
-                  </View>
-                  <View style={{ marginRight: -10 }}>
-                    <Icon
-                      name="document-outline"
-                      type="ionicon"
-                      color="#F6BB0A"
-                      size={100}
-                      onPress={() => console.log("hello")}
-                    />
-                    <Badge
-                      value="NonVeg"
-                      status="error"
-                      textStyle={{ fontWeight: "bold", fontSize: 8 }}
-                      containerStyle={{
-                        position: "absolute",
-                        marginTop: 10,
-                        marginLeft: 14,
-                        color: "green",
-                      }}
-                    />
+                      <Badge
+                        value="Veg"
+                        status="success"
+                        textStyle={{ fontWeight: "bold", fontSize: 8 }}
+                        containerStyle={{
+                          position: "absolute",
+                          marginTop: 10,
+                          marginLeft: 14,
+                          color: "green",
+                        }}
+                      />
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 50,
+                          marginLeft: 37,
+                          fontSize: 12,
+                        }}
+                      >
+                        Fri
+                      </Text>
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 65,
+                          marginLeft: 23,
+                          fontSize: 13,
+                        }}
+                      >
+                        02 Dec
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
 
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 50,
-                        marginLeft: 37,
-                        fontSize: 12,
-                      }}
-                    >
-                      Sat
-                    </Text>
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 65,
-                        marginLeft: 23,
-                        fontSize: 13,
-                      }}
-                    >
-                      03 Dec
-                    </Text>
-                  </View>
-                  <View style={{ marginRight: -10 }}>
-                    <Icon
-                      name="document-outline"
-                      type="ionicon"
-                      color="#F6BB0A"
-                      size={100}
-                      onPress={() => console.log("hello")}
-                    />
-                    <Badge
-                      value="Veg"
-                      status="success"
-                      textStyle={{ fontWeight: "bold", fontSize: 8 }}
-                      containerStyle={{
-                        position: "absolute",
-                        marginTop: 10,
-                        marginLeft: 14,
-                        color: "green",
-                      }}
-                    />
+                  <TouchableOpacity onPress={() => navigation.navigate("Diet")}>
+                    <View style={{ marginRight: -10 }}>
+                      <Icon
+                        name="document-outline"
+                        type="ionicon"
+                        color="#F6BB0A"
+                        size={100}
+                      />
+                      <Badge
+                        value="NonVeg"
+                        status="error"
+                        textStyle={{ fontWeight: "bold", fontSize: 8 }}
+                        containerStyle={{
+                          position: "absolute",
+                          marginTop: 10,
+                          marginLeft: 14,
+                          color: "green",
+                        }}
+                      />
 
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 50,
-                        marginLeft: 37,
-                        fontSize: 12,
-                      }}
-                    >
-                      Sun
-                    </Text>
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 65,
-                        marginLeft: 23,
-                        fontSize: 13,
-                      }}
-                    >
-                      04 Dec
-                    </Text>
-                  </View>
-                  <View style={{ marginRight: -10 }}>
-                    <Icon
-                      name="document-outline"
-                      type="ionicon"
-                      color="#F6BB0A"
-                      size={100}
-                      onPress={() => console.log("hello")}
-                    />
-                    <Badge
-                      value="NonVeg"
-                      status="error"
-                      textStyle={{ fontWeight: "bold", fontSize: 8 }}
-                      containerStyle={{
-                        position: "absolute",
-                        marginTop: 10,
-                        marginLeft: 14,
-                        color: "green",
-                      }}
-                    />
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 50,
+                          marginLeft: 37,
+                          fontSize: 12,
+                        }}
+                      >
+                        Sat
+                      </Text>
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 65,
+                          marginLeft: 23,
+                          fontSize: 13,
+                        }}
+                      >
+                        03 Dec
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
 
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 50,
-                        marginLeft: 37,
-                        fontSize: 12,
-                      }}
-                    >
-                      Mon
-                    </Text>
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 65,
-                        marginLeft: 23,
-                        fontSize: 13,
-                      }}
-                    >
-                      05 Dec
-                    </Text>
-                  </View>
+                  <TouchableOpacity onPress={() => navigation.navigate("Diet")}>
+                    <View style={{ marginRight: -10 }}>
+                      <Icon
+                        name="document-outline"
+                        type="ionicon"
+                        color="#F6BB0A"
+                        size={100}
+                      />
+                      <Badge
+                        value="Veg"
+                        status="success"
+                        textStyle={{ fontWeight: "bold", fontSize: 8 }}
+                        containerStyle={{
+                          position: "absolute",
+                          marginTop: 10,
+                          marginLeft: 14,
+                          color: "green",
+                        }}
+                      />
 
-                  <View style={{ marginRight: -10 }}>
-                    <Icon
-                      name="document-outline"
-                      type="ionicon"
-                      color="#F6BB0A"
-                      size={100}
-                      onPress={() => console.log("hello")}
-                    />
-                    <Badge
-                      value="Veg"
-                      status="success"
-                      textStyle={{ fontWeight: "bold", fontSize: 8 }}
-                      containerStyle={{
-                        position: "absolute",
-                        marginTop: 10,
-                        marginLeft: 14,
-                        color: "green",
-                      }}
-                    />
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 50,
+                          marginLeft: 37,
+                          fontSize: 12,
+                        }}
+                      >
+                        Sun
+                      </Text>
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 65,
+                          marginLeft: 23,
+                          fontSize: 13,
+                        }}
+                      >
+                        04 Dec
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
 
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 50,
-                        marginLeft: 37,
-                        fontSize: 12,
-                      }}
-                    >
-                      Tue
-                    </Text>
-                    <Text
-                      style={{
-                        position: "absolute",
-                        marginTop: 65,
-                        marginLeft: 23,
-                        fontSize: 13,
-                      }}
-                    >
-                      06 Dec
-                    </Text>
-                  </View>
+                  <TouchableOpacity onPress={() => navigation.navigate("Diet")}>
+                    <View style={{ marginRight: -10 }}>
+                      <Icon
+                        name="document-outline"
+                        type="ionicon"
+                        color="#F6BB0A"
+                        size={100}
+                      />
+                      <Badge
+                        value="NonVeg"
+                        status="error"
+                        textStyle={{ fontWeight: "bold", fontSize: 8 }}
+                        containerStyle={{
+                          position: "absolute",
+                          marginTop: 10,
+                          marginLeft: 14,
+                          color: "green",
+                        }}
+                      />
+
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 50,
+                          marginLeft: 37,
+                          fontSize: 12,
+                        }}
+                      >
+                        Mon
+                      </Text>
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 65,
+                          marginLeft: 23,
+                          fontSize: 13,
+                        }}
+                      >
+                        05 Dec
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity onPress={() => navigation.navigate("Diet")}>
+                    <View style={{ marginRight: -10 }}>
+                      <Icon
+                        name="document-outline"
+                        type="ionicon"
+                        color="#F6BB0A"
+                        size={100}
+                      />
+                      <Badge
+                        value="Veg"
+                        status="success"
+                        textStyle={{ fontWeight: "bold", fontSize: 8 }}
+                        containerStyle={{
+                          position: "absolute",
+                          marginTop: 10,
+                          marginLeft: 14,
+                          color: "green",
+                        }}
+                      />
+
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 50,
+                          marginLeft: 37,
+                          fontSize: 12,
+                        }}
+                      >
+                        Tue
+                      </Text>
+                      <Text
+                        style={{
+                          position: "absolute",
+                          marginTop: 65,
+                          marginLeft: 23,
+                          fontSize: 13,
+                        }}
+                      >
+                        06 Dec
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
                 </ScrollView>
               </View>
             </View>

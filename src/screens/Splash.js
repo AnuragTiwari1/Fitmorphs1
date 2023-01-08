@@ -15,7 +15,7 @@ const Splash = () => {
       if (isUserLogin) {
         navigation.dispatch(StackActions.replace("BottomNavigator"));
       } else {
-        navigation.dispatch(StackActions.replace("Login"));
+        navigation.dispatch(StackActions.replace("AppIntro"));
       }
     }, 4000);
   }, []);
