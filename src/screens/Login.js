@@ -6,6 +6,7 @@ import {
   TextInput,
   TouchableOpacity,
   Alert,
+  ImageBackground,
 } from "react-native";
 import React, { useState, useEffect } from "react";
 import BackgroundImg from "../../assets/img/8d1fe8151496153.630d3a08be217.png";
@@ -99,14 +100,14 @@ const Login = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.topBackgroundImgContainer}>
+    <ImageBackground style={styles.container} source={BackgroundImg}>
+      {/* <View style={styles.topBackgroundImgContainer}>
         <Image
           source={BackgroundImg}
           style={styles.backgroundImg}
-          resizeMode="contain"
+          resizeMode="repeat"
         />
-      </View>
+      </View> */}
       <View style={styles.bottomBackgroundImgContainer}></View>
       <View style={styles.formContainer}>
         <View style={styles.formTopContainer}>
@@ -150,7 +151,7 @@ const Login = () => {
 
             {/* <TouchableOpacity style={styles.loginButton}
                                      onPress={() => setIsSubmit(true)} >
-                    
+
                         <Text style={{color:'#fff',fontWeight:'bold',fontSize: 17}}>Login</Text>
                     </TouchableOpacity> */}
 
@@ -228,7 +229,7 @@ const Login = () => {
           </View>
         </View>
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 
