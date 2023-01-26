@@ -79,7 +79,7 @@ const Home = () => {
       if (data.status == "success") {
         //Alert.alert('User Login Successfully');
 
-        await AsyncStorage.setItem("user_data", JSON.stringify(userData));
+        // await AsyncStorage.setItem("user_data", JSON.stringify(userData));
 
         navigation.dispatch(
           // StackActions.replace("Home")  // Replace Login Page with Home Page , means redirect to Hoem Screen if Login
