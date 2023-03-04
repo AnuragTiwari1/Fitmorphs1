@@ -173,11 +173,6 @@ const Home = () => {
           source={{ uri: item.sImage }}
         />
         <TouchableOpacity
-          onPress={() =>
-            navigation.navigate("Tools1", {
-              iChallengeId: item.iChallengeId,
-            })
-          }
           style={{
             margin: 5,
             position: "absolute",
@@ -316,7 +311,7 @@ const Home = () => {
 const styles = ScaledSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f6fbf6",
+    backgroundColor: "#F0F2F4",
   },
   headerContainer: {
     justifyContent: "center",

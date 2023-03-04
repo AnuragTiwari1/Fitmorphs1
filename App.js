@@ -15,8 +15,16 @@ import BFP from "./src/screens/BFP";
 import BMR from "./src/screens/BMR";
 import BuyPlan from "./src/screens/BuyPlan";
 import CalorieCalculator from "./src/screens/CalorieCalculator";
-import Diet from "./src/screens/Diet";
+import Diet1 from "./src/screens/Diet1";
+import WorkoutSet from "./src/screens/WorkoutSet";
+import WorkoutAdd from "./src/screens/WorkoutAdd";
+import WorkoutAdd1 from "./src/screens/WorkoutAdd1";
+import WorkoutSetView from "./src/screens/WorkoutSetView";
+import Challenge from "./src/screens/Challenge";
+import Tools1 from "./src/screens/Tools1";
 import BottomNavigator from "./src/BottomNavigator/BottomNavigator";
+
+import ScrollAnim from "./src/screens/ScrollAnim";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -39,7 +47,7 @@ export default function App() {
 
   return screenName ? (
     <NavigationContainer>
-      {/* <StatusBar backgroundColor="#febe29" /> */}
+      <StatusBar backgroundColor="#FFD800" />
       <Stack.Navigator initialRouteName={Splash}>
         <Stack.Screen
           name="Splash"
@@ -55,6 +63,11 @@ export default function App() {
         <Stack.Screen
           name="Login"
           component={Login}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Diet1"
+          component={Diet1}
           options={{ headerShown: false }}
         />
         {/* <Stack.Screen name="Profile" component={Profile} /> */}
@@ -73,6 +86,43 @@ export default function App() {
         <Stack.Screen
           name="Signup"
           component={Signup}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutSet"
+          component={WorkoutSet}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutAdd"
+          component={WorkoutAdd}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutAdd1"
+          component={WorkoutAdd1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="WorkoutSetView"
+          component={WorkoutSetView}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Challenge"
+          component={Challenge}
+          options={{ headerShown: false }}
+        />
+
+        <Stack.Screen
+          name="Tools1"
+          component={Tools1}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="ScrollAnim"
+          component={ScrollAnim}
           options={{ headerShown: false }}
         />
 

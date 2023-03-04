@@ -9,6 +9,7 @@ const Tab = createBottomTabNavigator();
 //import screens
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
+import WorkoutDiary from "../screens/WorkoutDiary";
 import GetCoach from "../screens/GetCoach";
 import Responsive from "../screens/Responsive";
 import Plan from "../screens/Plan";
@@ -74,6 +75,7 @@ const BottomNavigator = () => {
           right: 5,
           elevation: 0,
           backgroundColor: "white",
+          opacity: 0.9,
           borderRadius: 15,
           height: 90,
 
@@ -114,7 +116,7 @@ const BottomNavigator = () => {
         }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Get A Coach"
         component={GetCoach}
         options={{
@@ -139,8 +141,34 @@ const BottomNavigator = () => {
             </View>
           ),
         }}
-      />
+      /> */}
 
+      <Tab.Screen
+        name="Workout"
+        component={WorkoutDiary}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View>
+              <MaterialCommunityIcons
+                name="arm-flex-outline"
+                size={30}
+                color={focused ? "orangered" : "black"}
+                style={{ textAlign: "center" }}
+              />
+              <Text
+                style={{
+                  color: focused ? "orangered" : "black",
+                  fontSize: 10,
+                  textAlign: "justify",
+                }}
+              >
+                Workout
+              </Text>
+            </View>
+          ),
+        }}
+      />
       <Tab.Screen
         name="My Plan"
         component={Plan}

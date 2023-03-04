@@ -1,12 +1,7 @@
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React from "react";
 
-
-
 const CourseDetails = ({ navigation, route }) => {
-
-
-
   const id = route.params.courseId;
   console.log(id);
 
@@ -45,7 +40,8 @@ const CourseDetails = ({ navigation, route }) => {
           <Text style={styles.price}> {selectedCourse.price} </Text>
           <TouchableOpacity
             style={styles.buttonStyle}
-            onPress={() => navigation.navigate("Course")}>
+            onPress={() => navigation.navigate("Course")}
+          >
             <Text style={styles.buttonText}> Join Now </Text>
           </TouchableOpacity>
         </View>
@@ -101,7 +97,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     fontWeight: "500",
     paddingBottom: 15,
-    fontFamily: "WorkSans_400Regular",
+
     textAlign: "center",
   },
 
@@ -110,7 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#7d7d7d",
     paddingBottom: 20,
-    fontFamily: "WorkSans_400Regular",
+
     lineHeight: 20,
   },
   subCourse: {
@@ -135,7 +131,7 @@ const styles = StyleSheet.create({
     borderBottomLeftRadius: 1,
     borderTopLeftRadius: 1,
     fontSize: 20,
-    fontFamily: "WorkSans_400Regular",
+
     textAlign: "center",
   },
   buttonStyle: {
@@ -151,7 +147,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 20,
     color: "#eee",
-    fontFamily: "WorkSans_400Regular",
   },
 });
 

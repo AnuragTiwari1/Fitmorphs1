@@ -4,7 +4,7 @@
     "slug": "Fitmorphs1",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/img/icon1.png",
+    "icon": "https://www.fitmorphs.com/en/FitMorphs_Logo-1.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",

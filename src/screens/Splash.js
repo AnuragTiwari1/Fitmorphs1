@@ -35,19 +35,24 @@ const Splash = () => {
         hidden={false}
         backgroundColor="#F6BB0A"
       />
-      <Image
+      {/* <Image
         source={require("../../assets/img/icon1.png")}
         style={{ width: 50, height: 50 }}
+      /> */}
+      <Image
+        source={{
+          uri: "https://www.fitmorphs.com/en/FitMorphs_Logo-1.png",
+        }}
+        style={{ width: 300, height: 350 }}
       />
-      <Text
+      {/* <Text
         style={{
-          fontFamily: "OpenSans-Bold",
           fontSize: 30,
           color: "white",
         }}
       >
         FITMORPHS
-      </Text>
+      </Text> */}
     </View>
   );
 };

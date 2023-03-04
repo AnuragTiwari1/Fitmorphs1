@@ -133,7 +133,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -256,7 +255,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -379,7 +377,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -530,7 +527,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -653,7 +649,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -776,7 +771,6 @@ const Diet = () => {
                     <View style={{ display: "flex", flexDirection: "row" }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,

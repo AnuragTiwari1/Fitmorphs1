@@ -136,7 +136,7 @@ const Tools = () => {
                         source={{
                           uri: "https://30dayfitness.app/static/f12eb1778140354530c351f36d1ac8d1/a6c62/body-fat-percentage.jpg",
                         }}
-                        title="Bj"
+                        title="FM"
                         containerStyle={{ backgroundColor: "grey" }}
                       ></Avatar>
                     </View>
@@ -144,7 +144,6 @@ const Tools = () => {
                     <View style={{ flex: 5 }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -191,7 +190,7 @@ const Tools = () => {
                         source={{
                           uri: "https://cdn.squats.in/kc_articles/1657112348137faa76260473e7ad6.png",
                         }}
-                        title="Bj"
+                        title="FM"
                         containerStyle={{ backgroundColor: "grey" }}
                       ></Avatar>
                     </View>
@@ -199,7 +198,6 @@ const Tools = () => {
                     <View style={{ flex: 5 }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -247,7 +245,7 @@ const Tools = () => {
                         source={{
                           uri: "https://cdn-icons-png.flaticon.com/512/3632/3632468.png",
                         }}
-                        title="Bj"
+                        title="FM"
                         containerStyle={{ backgroundColor: "grey" }}
                       ></Avatar>
                     </View>
@@ -255,7 +253,6 @@ const Tools = () => {
                     <View style={{ flex: 5 }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -302,7 +299,7 @@ const Tools = () => {
                         source={{
                           uri: "https://play-lh.googleusercontent.com/UkHN5hq2od9kSFntcNQMkkWWkD6pac3rsmZ4jN_BZ4CwezENHTVV-JUK-lKBFQey2Q=w600-h300-pc0xffffff-pd",
                         }}
-                        title="Bj"
+                        title="FM"
                         containerStyle={{ backgroundColor: "grey" }}
                       ></Avatar>
                     </View>
@@ -310,7 +307,6 @@ const Tools = () => {
                     <View style={{ flex: 5 }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
@@ -357,7 +353,7 @@ const Tools = () => {
                         source={{
                           uri: "https://i.pinimg.com/originals/22/fb/56/22fb56c0dc3497d7fa80dd0122d6f94e.png",
                         }}
-                        title="Bj"
+                        title="FM"
                         containerStyle={{ backgroundColor: "grey" }}
                       ></Avatar>
                     </View>
@@ -365,7 +361,6 @@ const Tools = () => {
                     <View style={{ flex: 5 }}>
                       <Text
                         style={{
-                          fontFamily: "regular",
                           fontSize: 16,
                           marginLeft: 20,
                           marginRight: 10,
